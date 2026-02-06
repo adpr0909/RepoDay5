@@ -11,9 +11,9 @@ data("mtcars")
 mtcars <- mtcars %>%
   mutate(cyl_factor = factor(cyl, levels = c(4, 6, 8), labels = c("4 Cyl", "6 Cyl", "8 Cyl")))
 
-# Summarize the dataset
+# Summarize the dataset: Calculate median MPG
 summary_table <- mtcars %>%
   group_by(cyl_factor) %>%
-  summarise(mean_mpg = mean(mpg, na.rm = TRUE))
+  summarise(median_mpg = median(mpg, na.rm = TRUE))
 
 print(summary_table)
